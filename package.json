@@ -7,13 +7,12 @@
         "start": "node app.js"
     },
     "dependencies": {
-	    "body-parser": "^1.15.0",
-	    "ejs": "^2.4.1",
-	    "express": "^4.13.4",
-	    "mongoose": "^4.4.15",
-	    "underscore": "^1.8.3",
-	    "mongodb": "2.0.46",
-        "mysql": "2.0.0-alpha9"
-	}
+        "body-parser": "^1.15.0",
+        "ejs": "^2.4.1",
+        "express": "^4.13.4",
+        "mongodb": "2.2.19",
+        "mongoose": "^4.4.15",
+        "mysql": "^2.16.0",
+        "underscore": "^1.8.3"
+    }
 }
-

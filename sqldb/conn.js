@@ -1,5 +1,5 @@
 var mysql = require('mysql')
-var db_name = 'nvui'; //数据库名称
+var db_name = 'sjCZvakWRrdDVRYHtrKr'; //数据库名称
 var db_host = '47.89.249.180'; //数据库地址
 var db_port = '3306'; // 数据库端口
 var username = 'root'; //用户AK

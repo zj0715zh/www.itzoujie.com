@@ -16,6 +16,7 @@ var DB_Message_Board = 'DB_Message_Board';
 var DB_User = 'DB_User';
 var DB_ActiveList = 'DB_ActiveList';
 var DB_JoinList = 'DB_JoinList';
+var DB_reportError = 'report_error';
 
 app.set('views','./views')
 app.set('view engine','ejs')
@@ -229,6 +230,28 @@ app.post('/msg/submit',function(req,res){
     }
 })
 
+//前端错误上报
+app.post('/error/report',function(req,res){
+    var data = req.body;
+    var client_ip = commonfuc.get_ip(req); 
+    try{
+        query("INSERT INTO "+ DB_reportError +"(current_url,err_msg,cookie_value,err_from,extro_info,client_ip) VALUES('"+data.localUrl+"','"+data.errorMsg+"','"+data.cookieValue+"','"+data.errorFrom+"','"+data.extroInfo+"','"+client_ip+"')"
+            ,function(err,vals,fields){
+            if (err) {
+                res.json({code:-1,message:err.sqlMessage});
+                res.end();
+                console.log(err);
+                return;
+            }
+            console.log('insert success \n');
+            res.json({code:200,message:'上报成功'});
+            res.end();
+        });
+    }catch(err){
+        res.json({code:-1,message:err});
+        res.end();
+    }
+})
 
 
 
